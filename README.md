@@ -5,6 +5,6 @@ Na voljo imamo omejeno število poskusov.
 
 ## Avtorji
 
-*Tea Simonič
-*Matija Pretnar
-*Matjaž Zaveršnik
+* Tea Simonič
+* Matija Pretnar
+* Matjaž Zaveršnik
