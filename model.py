@@ -1,9 +1,12 @@
 STEVILO_DOVOLJENIH_NAPAK = 10
+
 PRAVILNA_CRKA = '+'
 PONOVLJENA_CRKA = 'o'
 NAPACNA_CRKA= '-'
+
 ZMAGA= 'W'
 PORAZ ='X'
+ZACETEK = 'S'
 
 class Igra:
     def __init__(self, geslo, crke=None):
@@ -32,9 +35,9 @@ class Igra:
         niz = ''
         for crka in self.geslo:
             if crka in self.crke:
-                niz += crka
+                niz += crka + ' '
             else:
-                niz += '_'
+                niz += '_ '
         return niz
 
         #''.join([(crka if crka in self.crke else '_') for crka in self.geslo])
@@ -70,3 +73,25 @@ import random
 def nova_igra():
     geslo = random.choice(bazen_besed)
     return Igra(geslo)
+
+class Vislice:
+    def __init__(self):
+        self.igre = {}
+    
+    def prost_id_igre(self):
+        if len(self.igre) == 0:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
+    
+    def nova_igra(self):
+        id_igre = self.prost_id_igre()
+        igra = nova_igra()
+        self.igre[id_igre] = (igra, ZACETEK)
+        return id_igre
+
+    def ugibaj(self, id_igre, crka):
+        igra, _ = self.igre[id_igre]    # ali igra = self.igre[id_igre][0]
+        stanje = igra.ugibaj(crka)
+        self.igre[id_igre] = (igra, stanje)
+
