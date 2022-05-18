@@ -43,7 +43,7 @@ class Igra:
                 niz += '_ '
         return niz
 
-        #''.join([(crka if crka in self.crke else '_') for crka in self.geslo])
+             #''.join([(crka if crka in self.crke else '_') for crka in self.geslo])
 
     def nepravilni_ugibi(self):
         return ' '.join(self.napacne_crke())
